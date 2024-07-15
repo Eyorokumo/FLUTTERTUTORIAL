@@ -10,7 +10,7 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Colors.grey,
       appBar: AppBar(
         title: Text(
-          'Your i no know Monei Online Store',
+          'Your i no know Monei Online Store1',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         centerTitle: true,

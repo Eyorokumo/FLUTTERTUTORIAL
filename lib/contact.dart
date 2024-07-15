@@ -12,6 +12,24 @@ String name = 'Guest';
 class _ContactState extends State<Contact> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    print("Screen Building");
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Stateful Widget"),
+      ),
+      body: Column(
+        children: [
+          TextField(
+            onChanged: (value) {
+              setState(() {
+                name = value;
+              });
+              print("setState is Called");
+            },
+          ),
+          Text("Hello $name"),
+        ],
+      ),
+    );
   }
 }
