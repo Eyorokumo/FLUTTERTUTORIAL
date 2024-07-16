@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertutorial/contact.dart';
 
 class MyStatefulScreen extends StatefulWidget {
-  const MyStatefulScreen({super.key});
+  String userName;
+
+  MyStatefulScreen({Key? key, this.userName = "Alex Okon"}) : super(key: key);
 
   @override
   State<MyStatefulScreen> createState() => _MyStatefulSScreenState();
@@ -16,18 +19,54 @@ class _MyStatefulSScreenState extends State<MyStatefulScreen> {
   int i = 0;
   MaterialColor color = Colors.amber;
 
+  String? name;
+
+  @override
+  void initState() {
+    super.initState();
+    print("InIT STATE");
+    this.name = widget.userName;
+  }
+
+  @override
+  void didChangeDependencies() {
+    print('DidChangeDependencies');
+    super.didChangeDependencies();
+  }
+
+  @override
+  void didUpdateWidget(covariant MyStatefulScreen oldWidget) {
+    if (this.widget.userName != oldWidget.userName) {
+      print('DIDUPDATECHANGED');
+    }
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
+  void deactivate() {
+    print("deactivate");
+    super.deactivate();
+  }
+
+  @override
+  void dispose() {
+    print("DIspose");
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
+    print("Build Function");
     return Scaffold(
       appBar: AppBar(
-        title: Text("Stateful Widget"),
+        title: Text("Stateful Widget -$name"),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.color_lens),
         backgroundColor: color,
         onPressed: () {
           setState(() {
-             color = Colors.purple;
+            color = Colors.purple;
           });
         },
       ),
